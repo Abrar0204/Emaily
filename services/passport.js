@@ -28,21 +28,16 @@ export default () => {
 				proxy: true
 			},
 			async (accessToken, refreshToken, profile, done) => {
-				try {
-					const existingUser = await User.findOne({ googleId: profile.id });
+				const existingUser = await User.findOne({ googleId: profile.id });
 
-					if (existingUser) {
-						// console.log(user);
-						done(null, existingUser);
-					} else {
-						const newUser = await User.create({ googleId: profile.id });
-						done(null, newUser);
-					}
-				} catch (err) {
-					done(err, null);
+				if (existingUser) {
+					// console.log(user);
+					done(null, existingUser);
+				} else {
+					const newUser = await User.create({ googleId: profile.id });
+					done(null, newUser);
 				}
 			}
 		)
 	);
-	passport.initialize();
 };
