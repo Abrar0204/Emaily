@@ -13,9 +13,8 @@ dotenv.config();
 //connect to database
 connectDB();
 //Setup google with passport
-passportConfig();
-
 const app = express();
+passportConfig();
 
 const convertDaysToMillieSeconds = (days = 1) => days * 24 * 60 * 60 * 1000;
 //Enable passport to use cookies and use OAuth
