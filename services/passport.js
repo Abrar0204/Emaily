@@ -1,7 +1,7 @@
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import passport from 'passport';
 import { User } from '../models/User.js';
-// import asyncHandler from 'express-async-handler';
+import asyncHandler from 'express-async-handler';
 
 export default () => {
 	//Add User as a serialized cookie to browser
@@ -27,7 +27,7 @@ export default () => {
 				callbackURL: `/auth/google/callback`,
 				proxy: true
 			},
-			async (accessToken, refreshToken, profile, done) => {
+			asyncHandler(async (accessToken, refreshToken, profile, done) => {
 				try {
 					const existingUser = await User.findOne({ googleId: profile.id });
 
@@ -41,7 +41,7 @@ export default () => {
 				} catch (err) {
 					done(err, null);
 				}
-			}
+			})
 		)
 	);
 };
