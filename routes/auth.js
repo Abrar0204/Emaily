@@ -8,9 +8,9 @@ export default (app) => {
 		})
 	);
 
-	// app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
-	// 	res.redirect('/api/user');
-	// });
+	app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
+		res.send(req.user);
+	});
 
 	app.get('/api/logout', (req, res) => {
 		req.logout();
@@ -18,6 +18,7 @@ export default (app) => {
 	});
 
 	app.get('/api/user', (req, res) => {
-		res.send(req.user);
+		console.log(req.user);
+		res.send(req.user || { loggedIn: false });
 	});
 };

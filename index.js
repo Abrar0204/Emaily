@@ -22,7 +22,7 @@ const convertDaysToMillieSeconds = (days = 1) => days * 24 * 60 * 60 * 1000;
 app.use(
 	cookieSession({
 		maxAge: convertDaysToMillieSeconds(30),
-		keys: [ process.env.cookieKey ]
+		keys: [ process.env.COOKIE_KEY ]
 	})
 );
 //Initialize passport
