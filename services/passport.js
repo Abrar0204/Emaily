@@ -29,20 +29,18 @@ export default () => {
 			},
 			asyncHandler(async (accessToken, refreshToken, profile, done) => {
 				try {
-					User.findOne({ googleId: profile.id }, (err, existingUser) => {
-						if (existingUser) {
-							// console.log(user);
-							done(null, existingUser);
-						} else {
-							User.create({ googleId: profile.id }, (err, newUser) => {
-								done(null, newUser);
-							});
-						}
-					});
+					const existingUser = await User.findOne({ googleId: profile.id });
 
+					if (existingUser) {
+						// console.log(user);
+						done(null, existingUser);
+					} else {
+						const newUser = await User.create({ googleId: profile.id });
+						done(null, newUser);
+					}
 					// done(null, { id: '123312321312', googleId: profile.id });
 				} catch (err) {
-					console.log(err);
+					// console.log(err);
 					done(err, null);
 				}
 			})
