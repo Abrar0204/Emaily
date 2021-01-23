@@ -8,9 +8,10 @@ export default (app) => {
 		})
 	);
 
-	app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
-		res.send(req.user);
-	});
+	app.get(
+		'/auth/google/callback',
+		passport.authenticate('google', { failureRedirect: '/', successRedirect: '/api/user' })
+	);
 
 	app.get('/api/logout', (req, res) => {
 		req.logout();
