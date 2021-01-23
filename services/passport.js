@@ -24,7 +24,7 @@ export default () => {
 			{
 				clientID: process.env.clientID,
 				clientSecret: process.env.clientSecret,
-				callbackURL: '/auth/google/callback'
+				callbackURL: `${process.env.PORT || ''}/auth/google/callback`
 			},
 			async (accessToken, refreshToken, profile, done) => {
 				try {
