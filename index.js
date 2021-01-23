@@ -7,23 +7,25 @@ import colors from 'colors';
 import passport from 'passport';
 import cookieSession from 'cookie-session';
 
+//Initialize environment variables
 dotenv.config();
 
-//Duh!!
+//connect to database
 connectDB();
 //Setup google with passport
 passportConfig();
 
 const app = express();
-// app.use(passport.initialize());
-const convertDaysToMillieSeconds = (days = 1) => days * 24 * 60 * 60 * 1000;
 
+const convertDaysToMillieSeconds = (days = 1) => days * 24 * 60 * 60 * 1000;
+//Enable passport to use cookies and use OAuth
 app.use(
 	cookieSession({
 		maxAge: convertDaysToMillieSeconds(30),
 		keys: [ process.env.cookieKey ]
 	})
 );
+//Initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -31,6 +33,7 @@ app.get('/', (req, res) => {
 	res.send({ homePage: 'homePage' });
 });
 
+//Authentication Routes
 authRoutes(app);
 
 //PORT listen

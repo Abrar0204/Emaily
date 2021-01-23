@@ -4,10 +4,12 @@ import { User } from '../models/User.js';
 // import asyncHandler from 'express-async-handler';
 
 export default () => {
+	//Add User as a serialized cookie to browser
 	passport.serializeUser((user, done) => {
 		done(null, user.id);
 	});
 
+	//Deserialzed user to the req property in express
 	passport.deserializeUser(async (userId, done) => {
 		try {
 			const user = await User.findById(userId);
