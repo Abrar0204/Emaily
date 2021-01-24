@@ -28,8 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/', (req, res) => {
-	// console.log(req.user);
-	res.send(req.user || { loggedIn: false });
+	res.send({ home: 'home' });
 });
 
 //Authentication Routes
