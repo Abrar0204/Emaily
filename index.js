@@ -6,7 +6,6 @@ import dotenv from 'dotenv';
 import colors from 'colors';
 import passport from 'passport';
 import cookieSession from 'cookie-session';
-
 //Initialize environment variables
 dotenv.config();
 
@@ -29,7 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/', (req, res) => {
-	console.log(req.user);
+	// console.log(req.user);
 	res.send(req.user || { loggedIn: false });
 });
 

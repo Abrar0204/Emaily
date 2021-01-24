@@ -30,17 +30,15 @@ export default () => {
 			asyncHandler(async (accessToken, refreshToken, profile, done) => {
 				try {
 					const existingUser = await User.findOne({ googleId: profile.id });
-
+					// console.log(profile);
 					if (existingUser) {
-						// console.log(user);
 						done(null, existingUser);
 					} else {
-						const newUser = await User.create({ googleId: profile.id });
+						const newUser = await User.create({ googleId: profile.id, name: profile.name.givenName });
 						done(null, newUser);
 					}
 					// done(null, { id: '123312321312', googleId: profile.id });
 				} catch (err) {
-					// console.log(err);
 					done(err, null);
 				}
 			})

@@ -16,7 +16,7 @@ export default (app) => {
 	});
 
 	app.get('/api/user', (req, res) => {
-		console.log(req.user);
-		res.send(req.user || { loggedIn: false });
+		// console.log(req.user);
+		res.json(req.user);
 	});
 };
