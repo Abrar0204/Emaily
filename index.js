@@ -40,12 +40,11 @@ stripeRoutes(app);
 
 if (process.env.NODE_ENV === 'production') {
 	//Express serves up static files
-	app.use(express.static('client/build'));
+	const __dirname = path.resolve();
+	app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 	//Express return index.html
-	app.get('*', (req, res) => {
-		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-	});
+	app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')));
 }
 
 //PORT listen
