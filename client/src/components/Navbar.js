@@ -47,7 +47,10 @@ const Navbar = ({ setShowModel }) => {
 		}
 		return [
 			<li className="navbar-items-list-item" key="Dashboard">
-				<Link to="/surveys">Dashboard {user.credits}</Link>
+				<Link to="/surveys">Dashboard</Link>
+			</li>,
+			<li className="navbar-items-list-item" key="credit">
+				<span className="item">Credits: {user.credits}</span>
 			</li>,
 			<li className="navbar-items-list-item" key="get_credit" onClick={showModel}>
 				<span className="item">Get Credits</span>
