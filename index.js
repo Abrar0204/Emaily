@@ -34,9 +34,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', (req, res) => {
-	res.send({ home: 'home' });
-});
+// app.get('/', (req, res) => {
+// 	res.send({ home: 'home' });
+// });
 
 //Authentication Routes
 authRoutes(app);
