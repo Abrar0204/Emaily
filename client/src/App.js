@@ -18,7 +18,7 @@ const App = () => {
 				<Navbar setShowModel={setShowModel} showModel={showModel} />
 				<StripeContainer showModel={showModel} setShowModel={setShowModel} />
 				<Route path="/" exact component={Home} />
-				<Route path="/surveys" render={(props) => <Dashboard {...props} user={user} />} />
+				<Route path="/surveys" exact render={(props) => <Dashboard {...props} user={user} />} />
 				<Route path="/error" component={ErrorPage} />
 			</Router>
 		</div>
