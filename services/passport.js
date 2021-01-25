@@ -35,7 +35,11 @@ export default () => {
 						return done(null, existingUser);
 					}
 
-					const newUser = await User.create({ googleId: profile.id, name: profile.name.givenName });
+					const newUser = await User.create({
+						googleId: profile.id,
+						name: `${profile.name.givenName} ${profile.name.finalName || 'Hasan'}`,
+						credits: 0
+					});
 					done(null, newUser);
 				} catch (err) {
 					done(err, null);

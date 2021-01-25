@@ -1,5 +1,7 @@
 const initialState = {
-	user: {}
+	user: {},
+	loading: true,
+	error: null
 };
 
 const userReducer = (state = initialState, { type, payload }) => {

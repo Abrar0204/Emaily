@@ -1,11 +1,15 @@
 import express from 'express';
 import passportConfig from './services/passport.js';
 import authRoutes from './routes/auth.js';
+import stripeRoutes from './routes/stripe.js';
 import connectDB from './services/mongoose.js';
 import dotenv from 'dotenv';
 import colors from 'colors';
 import passport from 'passport';
 import cookieSession from 'cookie-session';
+import bodyParser from 'body-parser';
+// import clearUsers from './services/clearDatabase.js';
+
 //Initialize environment variables
 dotenv.config();
 
@@ -13,6 +17,8 @@ dotenv.config();
 connectDB();
 //Setup google with passport
 const app = express();
+app.use(bodyParser.json());
+
 passportConfig();
 
 const convertDaysToMillieSeconds = (days = 1) => days * 24 * 60 * 60 * 1000;
@@ -33,7 +39,7 @@ app.get('/', (req, res) => {
 
 //Authentication Routes
 authRoutes(app);
-
+stripeRoutes(app);
 //PORT listen
 const PORT = process.env.PORT || 5000;
 

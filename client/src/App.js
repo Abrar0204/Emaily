@@ -1,37 +1,26 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
-import { getUser } from './actions/userAction';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './components/Home';
+import ErrorPage from './components/ErrorPage';
+import Dashboard from './components/Dashboard';
+import StripeContainer from './components/common/StripeContainer';
+
 const App = () => {
-	const dispatch = useDispatch();
-
 	const userData = useSelector((state) => state.userData);
-	const { user, loading, error } = userData;
-
-	useEffect(
-		() => {
-			const fetchData = async () => {
-				dispatch(getUser());
-			};
-			fetchData();
-		},
-		[ dispatch ]
-	);
-
+	const { user } = userData;
+	const [ showModel, setShowModel ] = useState(false);
 	return (
-		<div>
-			{loading ? (
-				<h1>Loading</h1>
-			) : error ? (
-				<h1>Error</h1>
-			) : Object.keys(user).length === 0 ? (
-				<h1>Home</h1>
-			) : (
-				<h1>{user.name}</h1>
-			)}{' '}
-			<a href="/auth/google">Login</a>
-			<br />
-			<a href="/api/logout">Logout</a>
+		<div className="main">
+			<Router>
+				<Navbar setShowModel={setShowModel} showModel={showModel} />
+				<StripeContainer showModel={showModel} setShowModel={setShowModel} />
+				<Route path="/" exact component={Home} />
+				<Route path="/surveys" render={(props) => <Dashboard {...props} user={user} />} />
+				<Route path="/error" component={ErrorPage} />
+			</Router>
 		</div>
 	);
 };
