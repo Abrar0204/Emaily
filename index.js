@@ -8,6 +8,7 @@ import colors from 'colors';
 import passport from 'passport';
 import cookieSession from 'cookie-session';
 import bodyParser from 'body-parser';
+import path from 'path';
 // import clearUsers from './services/clearDatabase.js';
 
 //Initialize environment variables
@@ -40,6 +41,17 @@ app.get('/', (req, res) => {
 //Authentication Routes
 authRoutes(app);
 stripeRoutes(app);
+
+if (process.env.NODE_ENV === 'production') {
+	//Express serves up static files
+	app.use(express.static('client/build'));
+
+	//Express return index.html
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	});
+}
+
 //PORT listen
 const PORT = process.env.PORT || 5000;
 
