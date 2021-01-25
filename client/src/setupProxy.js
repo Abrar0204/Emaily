@@ -4,7 +4,7 @@ module.exports = (app) => {
 	app.use(
 		[ '/api/', '/auth/google' ],
 		createProxyMiddleware({
-			target: 'http://127.0.0.1:5000'
+			target: 'https://immense-peak-44822.herokuapp.com/'
 		})
 	);
 };
