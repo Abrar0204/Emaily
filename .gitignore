@@ -5,3 +5,5 @@ keys.js
 
 client/node_modules
 client/build
+client/.env.development
+client/.env.production
