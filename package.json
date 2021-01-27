@@ -14,6 +14,7 @@
   "author": "Abrar Hasan",
   "license": "MIT",
   "dependencies": {
+    "@sendgrid/mail": "^7.4.2",
     "body-parser": "^1.19.0",
     "colors": "^1.4.0",
     "cookie-session": "^1.4.0",
@@ -23,6 +24,7 @@
     "mongoose": "^5.11.13",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
+    "sendgrid": "^5.2.3",
     "stripe": "^8.132.0"
   },
   "devDependencies": {

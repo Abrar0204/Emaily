@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { surveySchema } from './Survey.js';
 
 const { Schema } = mongoose;
 
@@ -14,6 +15,10 @@ const userSchema = Schema({
 	credits: {
 		type: Number,
 		required: true
+	},
+	photo: {
+		type: String,
+		requires: true
 	}
 });
 

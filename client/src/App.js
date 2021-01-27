@@ -12,6 +12,7 @@ const App = () => {
 	const userData = useSelector((state) => state.userData);
 	const { user } = userData;
 	const [ showModel, setShowModel ] = useState(false);
+
 	return (
 		<div className="main">
 			<Router>
