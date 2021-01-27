@@ -20,8 +20,10 @@ const Pricing = () => {
 						cause we’re nice like that.
 					</div>
 				</div>
-				<div className="button call-to-action">
-					<a href="/auth/google">Claim your Free Credits</a>
+				<div className="button-container">
+					<div className="button call-to-action pricing-button">
+						<a href="/auth/google">Claim your Free Credits</a>
+					</div>
 				</div>
 			</div>
 		</section>

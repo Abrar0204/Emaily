@@ -254,6 +254,7 @@ h6 {
         -ms-flex-direction: column;
             flex-direction: column;
     height: 100vh;
+    padding: 0rem 3rem;
   }
 }
 
@@ -342,6 +343,13 @@ h6 {
   color: #f3fbfd;
 }
 
+@media only screen and (max-width: 350px) {
+  .button.call-to-action.pricing-button a {
+    font-size: 1.6rem;
+    padding: 1.5rem 2rem;
+  }
+}
+
 .about {
   margin: 5rem 0rem;
   padding: 7rem 10rem;
@@ -358,6 +366,12 @@ h6 {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+}
+
+@media only screen and (max-width: 350px) {
+  .about {
+    padding: 5rem;
+  }
 }
 
 .about-header {
@@ -466,6 +480,7 @@ h6 {
         -ms-flex-direction: column;
             flex-direction: column;
     text-align: center;
+    margin: 10rem 1rem;
   }
 }
 
@@ -533,6 +548,7 @@ h6 {
         grid-template-columns: 1fr;
     -ms-grid-rows: (45rem)[2];
         grid-template-rows: repeat(2, 45rem);
+    margin: 10rem 2rem;
   }
 }
 

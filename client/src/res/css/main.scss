@@ -189,6 +189,7 @@ h6 {
 		justify-content: space-evenly;
 		flex-direction: column;
 		height: 100vh;
+		padding: 0rem 3rem;
 	}
 	&-description {
 		// align-self: stretch;
@@ -256,6 +257,14 @@ h6 {
 			border-radius: 100rem;
 			font-size: 2rem;
 		}
+		&.pricing-button {
+			a {
+				@media only screen and (max-width: $smallMobile) {
+					font-size: 1.6rem;
+					padding: 1.5rem 2rem;
+				}
+			}
+		}
 	}
 }
 
@@ -266,7 +275,9 @@ h6 {
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-
+	@media only screen and (max-width: $smallMobile) {
+		padding: 5rem;
+	}
 	&-header {
 		margin-bottom: 4rem;
 		h1 {
@@ -333,6 +344,7 @@ h6 {
 	@media only screen and (max-width: $smallTablet) {
 		flex-direction: column;
 		text-align: center;
+		margin: 10rem 1rem;
 	}
 	&-svg {
 		width: 100%;
@@ -376,6 +388,7 @@ h6 {
 		@media only screen and (max-width: $smallTablet) {
 			grid-template-columns: 1fr;
 			grid-template-rows: repeat(2, 45rem);
+			margin: 10rem 2rem;
 		}
 		.card {
 			margin: 2rem;
