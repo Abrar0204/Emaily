@@ -1,0 +1,85 @@
+.pricing {
+	margin: 10rem 15rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@media only screen and (max-width: $tablet) {
+		margin: 10rem 5rem;
+	}
+	@media only screen and (max-width: $smallTablet) {
+		flex-direction: column;
+		text-align: center;
+		margin: 10rem 1rem;
+	}
+	&-svg {
+		width: 100%;
+		@media only screen and (max-width: $smallTablet) {
+			width: 60%;
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	&-description {
+		padding: 0rem 5rem;
+
+		.header-text {
+			margin: 3rem 0rem;
+			h1 {
+				font-size: 4rem;
+			}
+		}
+		.text {
+			font-size: 1.8rem;
+
+			div {
+				margin: 2.5rem 0rem;
+				span {
+					font-weight: 600;
+				}
+			}
+		}
+	}
+
+	&-cards {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 10rem 5rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: auto;
+		@media only screen and (max-width: $smallTablet) {
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 45rem);
+			margin: 10rem 2rem;
+		}
+		.card {
+			margin: 2rem;
+
+			height: 35rem;
+			background-color: #daf6fd;
+			border-radius: 1rem;
+			padding: 5rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			&-header {
+				font-size: 3rem;
+			}
+			&-body {
+				list-style: none;
+				font-size: 2rem;
+				&-item {
+					margin: 2rem 0rem;
+					&.strike-through {
+						text-decoration: line-through;
+						color: $subtitleColor;
+					}
+				}
+			}
+		}
+	}
+}

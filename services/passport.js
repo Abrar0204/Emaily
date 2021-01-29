@@ -38,7 +38,7 @@ export default () => {
 					const newUser = await User.create({
 						googleId: profile.id,
 						name: profile.displayName,
-						credits: 0,
+						credits: 5,
 						surveys: [],
 						photo: profile.photos[0].value
 					});

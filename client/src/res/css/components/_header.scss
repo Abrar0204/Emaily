@@ -1,0 +1,66 @@
+.header {
+	padding: 0rem 15rem;
+	background-color: $primaryColor;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 85vh;
+	@media only screen and (max-width: $tablet) {
+		padding: 0rem 5rem;
+	}
+	@media only screen and (max-width: $smallTablet) {
+		flex-direction: column;
+		height: 100vh;
+		padding: 0rem 3rem;
+	}
+	&-description {
+		// align-self: stretch;
+		width: 50%;
+		@media only screen and (max-width: $smallTablet) {
+			width: 90%;
+			text-align: center;
+		}
+		.text {
+			.text-large {
+				font-size: 4.5rem;
+				color: $headerColor;
+				line-height: 1;
+
+				width: 65%;
+				margin-bottom: 3.2rem;
+				@media only screen and(max-width: $tablet) {
+					font-size: 3rem;
+				}
+				@media only screen and (max-width: $smallTablet) {
+					width: 100%;
+				}
+			}
+			.text-medium {
+				font-size: 2rem;
+				color: $subtitleColor;
+				font-family: 'Poppins', sans-serif;
+				font-weight: 400;
+				width: 70%;
+				margin-bottom: 3.2rem;
+				@media only screen and(max-width: $tablet) {
+					font-size: 1.8rem;
+				}
+				@media only screen and (max-width: $smallTablet) {
+					width: 100%;
+					margin-bottom: 2rem;
+				}
+			}
+		}
+	}
+	&-hero {
+		width: 50%;
+		@media only screen and (max-width: $smallTablet) {
+			width: 70%;
+			padding: 3rem 0rem;
+		}
+		&-svg {
+			width: 100%;
+			height: auto;
+		}
+	}
+}

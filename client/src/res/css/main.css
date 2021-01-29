@@ -52,6 +52,7 @@ body {
   line-height: 1.7;
   font-family: 'Poppins', sans-serif;
   color: #00445c;
+  background-color: #f3fbfd;
 }
 
 h1,
@@ -63,6 +64,232 @@ h6 {
   font-family: 'Quicksand', sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
+}
+
+.box-shadow {
+  -webkit-box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.2);
+          box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.2);
+}
+
+.error-page {
+  height: 80vh;
+  width: 100%;
+  font-size: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loading-page {
+  height: 80vh;
+  width: 100%;
+  font-size: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loading-spinning {
+  border: .5rem solid transparent;
+  /* Light grey */
+  border-top: 0.5rem solid #00344b;
+  /* Blue */
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.button.call-to-action {
+  padding: 3rem 0rem;
+}
+
+.button.call-to-action a {
+  background-color: #005b74;
+  padding: 1.5rem 5rem;
+  border-radius: 100rem;
+  font-size: 2rem;
+}
+
+.button.call-to-action a:link, .button.call-to-action a:visited {
+  text-decoration: none;
+  color: #f3fbfd;
+}
+
+@media only screen and (max-width: 350px) {
+  .button.call-to-action.pricing-button a {
+    font-size: 1.6rem;
+    padding: 1.5rem 2rem;
+  }
+}
+
+.button.survey {
+  border: none;
+  padding: 1.5rem 3rem;
+  font-size: 2rem;
+  background-color: #005b74;
+  color: #f3fbfd;
+  border-radius: 10000px;
+}
+
+.button.survey:active {
+  outline: none;
+}
+
+.button.survey:link, .button.survey:visited {
+  padding: 1rem 3rem;
+  text-decoration: none;
+}
+
+.button.survey:hover {
+  cursor: pointer;
+}
+
+.button.survey-cancel {
+  background-color: transparent;
+  border: none;
+  padding: 1.5rem 3rem;
+  font-size: 2rem;
+  border: 0.1rem solid #005b74;
+  color: #005b74;
+  border-radius: 10000px;
+}
+
+.button.survey-cancel:active {
+  outline: none;
+}
+
+.button.survey-cancel:link, .button.survey-cancel:visited {
+  padding: 1rem 3rem;
+  text-decoration: none;
+}
+
+.button.survey-cancel:hover {
+  cursor: pointer;
+}
+
+.stripe-backdrop {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.267);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.stripe-backdrop.hidden {
+  display: none;
+}
+
+.stripe-container {
+  padding: 5rem 8rem;
+  background-color: white;
+  border-radius: 5px;
+  width: 40%;
+}
+
+.stripe-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.stripe-button {
+  padding: 1rem 1.5rem;
+  background-color: gray;
+  outline: none;
+  border: none;
+  color: white;
+  font-family: 'Lato';
+  font-size: 2rem;
+  width: 100%;
+}
+
+.stripe-button:hover {
+  cursor: pointer;
+}
+
+.stripe-button:focus {
+  outline: none;
+}
+
+.stripe-header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.stripe-header-text {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.stripe-close:hover {
+  cursor: pointer;
+}
+
+.StripeElement {
+  width: 100%;
+  padding: 2.5rem 1rem;
 }
 
 .navbar {
@@ -325,74 +552,6 @@ h6 {
   height: auto;
 }
 
-.button.call-to-action {
-  padding: 3rem 0rem;
-}
-
-.button.call-to-action a {
-  background-color: #005b74;
-  padding: 1.5rem 5rem;
-  border-radius: 100rem;
-  font-size: 2rem;
-}
-
-.button.call-to-action a:link, .button.call-to-action a:visited {
-  text-decoration: none;
-  color: #f3fbfd;
-}
-
-@media only screen and (max-width: 350px) {
-  .button.call-to-action.pricing-button a {
-    font-size: 1.6rem;
-    padding: 1.5rem 2rem;
-  }
-}
-
-.button.survey {
-  border: none;
-  padding: 1.5rem 3rem;
-  font-size: 2rem;
-  background-color: #005b74;
-  color: #f3fbfd;
-  border-radius: 10000px;
-}
-
-.button.survey:active {
-  outline: none;
-}
-
-.button.survey:link, .button.survey:visited {
-  padding: 1rem 3rem;
-  text-decoration: none;
-}
-
-.button.survey:hover {
-  cursor: pointer;
-}
-
-.button.survey-cancel {
-  background-color: transparent;
-  border: none;
-  padding: 1.5rem 3rem;
-  font-size: 2rem;
-  border: 0.1rem solid #005b74;
-  color: #005b74;
-  border-radius: 10000px;
-}
-
-.button.survey-cancel:active {
-  outline: none;
-}
-
-.button.survey-cancel:link, .button.survey-cancel:visited {
-  padding: 1rem 3rem;
-  text-decoration: none;
-}
-
-.button.survey-cancel:hover {
-  cursor: pointer;
-}
-
 .about {
   margin: 5rem 0rem;
   padding: 7rem 10rem;
@@ -490,11 +649,6 @@ h6 {
 
 .about-card-container .card-body {
   text-align: center;
-}
-
-.box-shadow {
-  -webkit-box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.2);
-          box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.2);
 }
 
 .pricing {
@@ -652,70 +806,6 @@ h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.dashboard {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 5rem;
-}
-
-.dashboard-header {
-  padding: 0rem 3rem;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-}
-
-.dashboard-header h1 {
-  font-size: 4.5rem;
-}
-
-.dashboard-header h3 {
-  font-size: 3rem;
-}
-
-.dashboard .add-survey-button {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 3rem;
-}
-
-.dashboard .add-survey-button:hover {
-  cursor: pointer;
-}
-
-.dashboard .add-survey-button a {
-  background-color: #00344b;
-  border-radius: 50%;
-  height: 6rem;
-  width: 6rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.dashboard .add-survey-button a img {
-  height: 2.5rem;
-  width: 2.5rem;
 }
 
 .survey-form-container {
@@ -884,6 +974,10 @@ h6 {
   margin: 2rem 2rem;
 }
 
+.survey-list.empty {
+  text-align: center;
+}
+
 .survey-item {
   width: 90%;
   border: 2px solid #00344b;
@@ -972,101 +1066,7 @@ h6 {
   background-color: #656565;
 }
 
-.loading-page {
-  height: 80vh;
-  width: 100%;
-  font-size: 5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.loading-spinning {
-  border: .5rem solid transparent;
-  /* Light grey */
-  border-top: 0.5rem solid #00344b;
-  /* Blue */
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  -webkit-animation: spin 2s linear infinite;
-          animation: spin 2s linear infinite;
-}
-
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-.error-page {
-  height: 80vh;
-  width: 100%;
-  font-size: 5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.stripe-backdrop {
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  background-color: rgba(0, 0, 0, 0.267);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.stripe-backdrop.hidden {
-  display: none;
-}
-
-.stripe-container {
-  padding: 5rem 8rem;
-  background-color: white;
-  border-radius: 5px;
-  width: 40%;
-}
-
-.stripe-form {
+.dashboard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1074,54 +1074,59 @@ h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5rem;
 }
 
-.stripe-button {
-  padding: 1rem 1.5rem;
-  background-color: gray;
-  outline: none;
-  border: none;
-  color: white;
-  font-family: 'Lato';
-  font-size: 2rem;
-  width: 100%;
+.dashboard-header {
+  padding: 0rem 3rem;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
-.stripe-button:hover {
+.dashboard-header h1 {
+  font-size: 4.5rem;
+}
+
+.dashboard-header h3 {
+  font-size: 3rem;
+}
+
+.dashboard .add-survey-button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 3rem;
+}
+
+.dashboard .add-survey-button:hover {
   cursor: pointer;
 }
 
-.stripe-button:focus {
-  outline: none;
-}
-
-.stripe-header {
-  width: 100%;
+.dashboard .add-survey-button a {
+  background-color: #00344b;
+  border-radius: 50%;
+  height: 6rem;
+  width: 6rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.stripe-header-text {
-  font-size: 2.5rem;
-  font-weight: 600;
-}
-
-.stripe-close:hover {
-  cursor: pointer;
-}
-
-.StripeElement {
-  width: 100%;
-  padding: 2.5rem 1rem;
+.dashboard .add-survey-button a img {
+  height: 2.5rem;
+  width: 2.5rem;
 }
 /*# sourceMappingURL=main.css.map */

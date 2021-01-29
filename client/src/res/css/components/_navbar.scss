@@ -1,0 +1,111 @@
+.navbar {
+	width: 100%;
+	height: 15vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2rem 10rem;
+	background-color: $primaryColor;
+	&.white {
+		background-color: white;
+	}
+	@media only screen and (max-width: $tablet) {
+		padding: 2rem 5rem;
+	}
+
+	&-logo-menu {
+		.logo {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			img {
+				padding: 0rem 1rem;
+			}
+			&:link,
+			&:visited {
+				text-decoration: none;
+			}
+			color: $headerColor;
+			& h1 {
+				font-size: 3rem;
+			}
+		}
+		.menu {
+			display: none;
+			z-index: 5;
+			@media only screen and (max-width: $tablet) {
+				display: block;
+				position: fixed;
+				top: 3rem;
+				right: 3rem;
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	&-items {
+		&-list {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			@media only screen and (max-width: $tablet) {
+				height: 100vh;
+				width: 100%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				background-color: $headerColor;
+				justify-content: flex-start;
+				padding-top: 20%;
+				flex-direction: column;
+				clip-path: circle(10px at 105% -10%);
+				transition: all 1s ease-out;
+				pointer-events: none;
+				z-index: 4;
+			}
+			&.open {
+				@media only screen and (max-width: $tablet) {
+					clip-path: circle(2000px at 95% -10%);
+					pointer-events: all;
+				}
+			}
+			&-item {
+				list-style: none;
+				padding: 1rem 2rem;
+				border-radius: 1000rem;
+				@media only screen and (max-width: $tablet) {
+					margin: 2rem;
+					color: $primaryColor;
+				}
+				& .item {
+					&:hover {
+						cursor: pointer;
+					}
+				}
+				a {
+					text-decoration: none;
+					color: $textColor;
+					@media only screen and (max-width: $tablet) {
+						color: $primaryColor;
+					}
+				}
+				&.logout {
+					margin: 0rem 2rem;
+					background-color: $dangerColor;
+					a {
+						color: $buttonTextColor;
+					}
+				}
+				&.login {
+					margin: 0rem 2rem;
+					background-color: $buttonColor;
+					a {
+						color: $buttonTextColor;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,65 @@
+.button {
+	&.call-to-action {
+		padding: 3rem 0rem;
+		a {
+			&:link,
+			&:visited {
+				text-decoration: none;
+				color: $buttonTextColor;
+			}
+			background-color: $buttonColor;
+			padding: 1.5rem 5rem;
+			border-radius: 100rem;
+			font-size: 2rem;
+		}
+		&.pricing-button {
+			a {
+				@media only screen and (max-width: $smallMobile) {
+					font-size: 1.6rem;
+					padding: 1.5rem 2rem;
+				}
+			}
+		}
+	}
+	&.survey {
+		&:active {
+			outline: none;
+		}
+		border: none;
+		padding: 1.5rem 3rem;
+		font-size: 2rem;
+		background-color: $buttonColor;
+		color: $buttonTextColor;
+		border-radius: 10000px;
+
+		&:link,
+		&:visited {
+			padding: 1rem 3rem;
+			text-decoration: none;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+		&-cancel {
+			&:active {
+				outline: none;
+			}
+			&:link,
+			&:visited {
+				padding: 1rem 3rem;
+				text-decoration: none;
+			}
+			&:hover {
+				cursor: pointer;
+			}
+			background-color: transparent;
+			border: none;
+			padding: 1.5rem 3rem;
+			font-size: 2rem;
+			border: .1rem solid $buttonColor;
+			color: $buttonColor;
+			border-radius: 10000px;
+		}
+	}
+}

@@ -1,0 +1,44 @@
+.dashboard {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	padding: 5rem;
+	&-header {
+		padding: 0rem 3rem;
+		align-self: flex-start;
+
+		h1 {
+			font-size: 4.5rem;
+		}
+		h3 {
+			font-size: 3rem;
+		}
+	}
+	.add-survey-button {
+		position: fixed;
+
+		bottom: 0;
+		right: 0;
+
+		margin: 3rem;
+
+		&:hover {
+			cursor: pointer;
+		}
+		a {
+			background-color: $headerColor;
+			border-radius: 50%;
+			height: 6rem;
+			width: 6rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			img {
+				height: 2.5rem;
+				width: 2.5rem;
+			}
+		}
+	}
+}
