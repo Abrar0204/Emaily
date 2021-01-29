@@ -42,12 +42,7 @@ const Navbar = ({ setShowModel }) => {
 		setShowModel(true);
 		setNavOpen(false);
 	};
-	// const survey = {
-	// 	title: 'Greetings from Emaily',
-	// 	subject: 'Give Feedback',
-	// 	recipients: [ 'abrarhasan0204@gmail.com', 'dishonoredabrar@gmail.com' ],
-	// 	body: 'We would love to hear if you enjoyed our service.'
-	// };
+
 	// const sendMail = async () => {
 	// 	console.log('sending');
 	// 	let data = {};
@@ -98,7 +93,7 @@ const Navbar = ({ setShowModel }) => {
 	};
 
 	return (
-		<nav className={checkLoggedIn() ? 'navbar white' : 'navbar'}>
+		<nav className="navbar">
 			<div className="navbar-logo-menu">
 				<Link to={checkLoggedIn() ? '/surveys' : '/'} className="logo">
 					<img src={logo} alt="Logo" />

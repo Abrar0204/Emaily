@@ -166,13 +166,14 @@ h6 {
     -webkit-transition: all 1s ease-out;
     transition: all 1s ease-out;
     pointer-events: none;
+    z-index: 4;
   }
 }
 
 @media only screen and (max-width: 850px) {
   .navbar-items-list.open {
-    -webkit-clip-path: circle(1000px at 95% -10%);
-            clip-path: circle(1000px at 95% -10%);
+    -webkit-clip-path: circle(2000px at 95% -10%);
+            clip-path: circle(2000px at 95% -10%);
     pointer-events: all;
   }
 }
@@ -246,9 +247,6 @@ h6 {
 
 @media only screen and (max-width: 670px) {
   .header {
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -348,6 +346,51 @@ h6 {
     font-size: 1.6rem;
     padding: 1.5rem 2rem;
   }
+}
+
+.button.survey {
+  border: none;
+  padding: 1.5rem 3rem;
+  font-size: 2rem;
+  background-color: #005b74;
+  color: #f3fbfd;
+  border-radius: 10000px;
+}
+
+.button.survey:active {
+  outline: none;
+}
+
+.button.survey:link, .button.survey:visited {
+  padding: 1rem 3rem;
+  text-decoration: none;
+}
+
+.button.survey:hover {
+  cursor: pointer;
+}
+
+.button.survey-cancel {
+  background-color: transparent;
+  border: none;
+  padding: 1.5rem 3rem;
+  font-size: 2rem;
+  border: 0.1rem solid #005b74;
+  color: #005b74;
+  border-radius: 10000px;
+}
+
+.button.survey-cancel:active {
+  outline: none;
+}
+
+.button.survey-cancel:link, .button.survey-cancel:visited {
+  padding: 1rem 3rem;
+  text-decoration: none;
+}
+
+.button.survey-cancel:hover {
+  cursor: pointer;
 }
 
 .about {
@@ -619,7 +662,49 @@ h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 90%;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5rem;
+}
+
+.dashboard-header {
+  padding: 0rem 3rem;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.dashboard-header h1 {
+  font-size: 4.5rem;
+}
+
+.dashboard-header h3 {
+  font-size: 3rem;
+}
+
+.dashboard .add-survey-button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 3rem;
+}
+
+.dashboard .add-survey-button:hover {
+  cursor: pointer;
+}
+
+.dashboard .add-survey-button a {
+  background-color: #00344b;
+  border-radius: 50%;
+  height: 6rem;
+  width: 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -628,9 +713,263 @@ h6 {
           align-items: center;
 }
 
-.dashboard-header {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+.dashboard .add-survey-button a img {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.survey-form-container {
+  width: 100%;
+  height: 60vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.survey-form {
+  margin-top: 10rem;
+  width: 35%;
+}
+
+@media only screen and (max-width: 850px) {
+  .survey-form {
+    width: 80%;
+  }
+}
+
+.survey-form .input-container {
+  position: relative;
+}
+
+.survey-form .input-container input {
+  width: 100%;
+  padding: 1rem 0;
+  color: #00445c;
+  margin-bottom: 3rem;
+  border: none;
+  border-bottom: 0.1rem solid #00445c;
+  outline: none;
+  background: transparent;
+  font-size: 2rem;
+}
+
+.survey-form .input-container input:focus ~ label,
+.survey-form .input-container input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #656565;
+  font-size: 1.3rem;
+}
+
+.survey-form .input-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem 0;
+  color: #00344b;
+  pointer-events: none;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.survey-form .button-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+@media only screen and (max-width: 350px) {
+  .survey-form .button-list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .survey-form .button-list .button {
+    margin: 1rem 0rem;
+  }
+}
+
+@media only screen and (max-width: 350px) and (max-width: 350px) {
+  .survey-form .button-list .button:first-child {
+    width: 100%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+}
+
+@media only screen and (max-width: 350px) and (max-width: 350px) {
+  .survey-form .button-list .button:last-child {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    width: 100%;
+  }
+}
+
+.survey-review {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.survey-review .review-box {
+  width: 50%;
+}
+
+.survey-review .review-box .box {
+  padding: 1rem 4rem;
+}
+
+.survey-review .review-box .box .title {
+  font-size: 2rem;
+}
+
+.survey-review .review-box .box .value,
+.survey-review .review-box .box .list {
+  padding: .5rem 2rem;
+}
+
+.survey-review .review-box .button-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.survey-list {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem 2rem;
+}
+
+.survey-item {
+  width: 90%;
+  border: 2px solid #00344b;
+  border-radius: 1rem;
+  padding: 2rem 3rem;
+  margin: 3rem 0rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.survey-item .title {
+  font-size: 2rem;
+}
+
+.survey-item .subject {
+  font-weight: 400;
+}
+
+.survey-item .bar-holder {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 2rem;
+  width: 80%;
+  background-color: rgba(101, 101, 101, 0.5);
+  border-radius: 50rem;
+}
+
+.survey-item .bar-holder .bar {
+  background-color: #00344b;
+  border-radius: 50rem;
+  height: 1rem;
+}
+
+.survey-item .legends {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.survey-item .legends-item {
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #00344b;
+}
+
+.survey-item .legends-item .circle {
+  height: 1.2rem;
+  width: 1.2rem;
+  background-color: #00344b;
+  border-radius: 50%;
+  margin: 1rem;
+}
+
+.survey-item .legends-item:last-child {
+  color: #656565;
+}
+
+.survey-item .legends-item:last-child .circle {
+  background-color: #656565;
 }
 
 .loading-page {

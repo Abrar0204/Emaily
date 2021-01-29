@@ -129,10 +129,11 @@ h6 {
 				clip-path: circle(10px at 105% -10%);
 				transition: all 1s ease-out;
 				pointer-events: none;
+				z-index: 4;
 			}
 			&.open {
 				@media only screen and (max-width: $tablet) {
-					clip-path: circle(1000px at 95% -10%);
+					clip-path: circle(2000px at 95% -10%);
 					pointer-events: all;
 				}
 			}
@@ -186,7 +187,6 @@ h6 {
 		padding: 0rem 5rem;
 	}
 	@media only screen and (max-width: $smallTablet) {
-		justify-content: space-evenly;
 		flex-direction: column;
 		height: 100vh;
 		padding: 0rem 3rem;
@@ -264,6 +264,47 @@ h6 {
 					padding: 1.5rem 2rem;
 				}
 			}
+		}
+	}
+	&.survey {
+		&:active {
+			outline: none;
+		}
+		border: none;
+		padding: 1.5rem 3rem;
+		font-size: 2rem;
+		background-color: $buttonColor;
+		color: $buttonTextColor;
+		border-radius: 10000px;
+
+		&:link,
+		&:visited {
+			padding: 1rem 3rem;
+			text-decoration: none;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+		&-cancel {
+			&:active {
+				outline: none;
+			}
+			&:link,
+			&:visited {
+				padding: 1rem 3rem;
+				text-decoration: none;
+			}
+			&:hover {
+				cursor: pointer;
+			}
+			background-color: transparent;
+			border: none;
+			padding: 1.5rem 3rem;
+			font-size: 2rem;
+			border: .1rem solid $buttonColor;
+			color: $buttonColor;
+			border-radius: 10000px;
 		}
 	}
 }
@@ -432,11 +473,210 @@ h6 {
 .dashboard {
 	display: flex;
 	flex-direction: column;
-	width: 90%;
+	width: 100%;
 	justify-content: center;
 	align-items: center;
+	padding: 5rem;
 	&-header {
+		padding: 0rem 3rem;
 		align-self: flex-start;
+
+		h1 {
+			font-size: 4.5rem;
+		}
+		h3 {
+			font-size: 3rem;
+		}
+	}
+	.add-survey-button {
+		position: fixed;
+
+		bottom: 0;
+		right: 0;
+
+		margin: 3rem;
+
+		&:hover {
+			cursor: pointer;
+		}
+		a {
+			background-color: $headerColor;
+			border-radius: 50%;
+			height: 6rem;
+			width: 6rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			img {
+				height: 2.5rem;
+				width: 2.5rem;
+			}
+		}
+	}
+}
+.survey {
+	&-form-container {
+		width: 100%;
+		height: 60vh;
+		display: flex;
+		justify-content: center;
+		align-self: center;
+	}
+	&-form {
+		margin-top: 10rem;
+		width: 35%;
+		@media only screen and (max-width: $tablet) {
+			width: 80%;
+		}
+		.input-container {
+			position: relative;
+			input {
+				width: 100%;
+				padding: 1rem 0;
+
+				color: $textColor;
+				margin-bottom: 3rem;
+				border: none;
+				border-bottom: .1rem solid $textColor;
+				outline: none;
+				background: transparent;
+				font-size: 2rem;
+				&:focus ~ label,
+				&:valid ~ label {
+					top: -20px;
+					left: 0;
+					color: $subtitleColor;
+					font-size: 1.3rem;
+				}
+			}
+			label {
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding: 1rem 0;
+
+				color: $headerColor;
+				pointer-events: none;
+				transition: all .5s ease;
+			}
+		}
+		.button-list {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			@media only screen and (max-width: $smallMobile) {
+				flex-direction: column;
+				justify-content: flex-start;
+				.button {
+					margin: 1rem 0rem;
+					&:first-child {
+						@media only screen and (max-width: $smallMobile) {
+							width: 100%;
+							order: 2;
+						}
+					}
+					&:last-child {
+						@media only screen and (max-width: $smallMobile) {
+							order: 1;
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&-review {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.review-box {
+			width: 50%;
+			.box {
+				padding: 1rem 4rem;
+				.title {
+					font-size: 2rem;
+				}
+				.value,
+				.list {
+					padding: .5rem 2rem;
+				}
+			}
+			.button-list {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				width: 100%;
+			}
+		}
+	}
+
+	&-list {
+		width: 70%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		margin: 2rem 2rem;
+	}
+
+	&-item {
+		width: 90%;
+		border: 2px solid $headerColor;
+		border-radius: 1rem;
+		padding: 2rem 3rem;
+		margin: 3rem 0rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		.title {
+			font-size: 2rem;
+		}
+		.subject {
+			font-weight: 400;
+		}
+		.bar-holder {
+			align-self: center;
+			margin: 2rem;
+			width: 80%;
+			background-color: rgba($subtitleColor, 0.5);
+
+			border-radius: 50rem;
+			.bar {
+				background-color: $headerColor;
+				border-radius: 50rem;
+				height: 1rem;
+			}
+		}
+		.legends {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&-item {
+				padding: 1rem;
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+				color: $headerColor;
+				.circle {
+					height: 1.2rem;
+					width: 1.2rem;
+					background-color: $headerColor;
+					border-radius: 50%;
+					margin: 1rem;
+				}
+				&:last-child {
+					color: $subtitleColor;
+					.circle {
+						background-color: $subtitleColor;
+					}
+				}
+			}
+		}
 	}
 }
 

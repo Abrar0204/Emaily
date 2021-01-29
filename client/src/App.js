@@ -7,6 +7,8 @@ import Home from './components/Home';
 import ErrorPage from './components/ErrorPage';
 import Dashboard from './components/Dashboard';
 import StripeContainer from './components/common/StripeContainer';
+import SurveyForm from './components/SurveyForm';
+import SurveyReview from './components/SurveyReview';
 
 const App = () => {
 	const userData = useSelector((state) => state.userData);
@@ -20,6 +22,8 @@ const App = () => {
 				<StripeContainer showModel={showModel} setShowModel={setShowModel} />
 				<Route path="/" exact component={Home} />
 				<Route path="/surveys" exact render={(props) => <Dashboard {...props} user={user} />} />
+				<Route path="/surveys/new" exact component={SurveyForm} />
+				<Route path="/surveys/new/review" exact component={SurveyReview} />
 				<Route path="/error" component={ErrorPage} />
 			</Router>
 		</div>

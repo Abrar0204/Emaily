@@ -5,9 +5,25 @@ import { Survey } from '../models/Survey.js';
 import surveyTemplate from '../services/emailTemplate/surveyTemplate.js';
 import Mailer from '../services/mailer.js';
 
+import _ from 'lodash';
+import { URL } from 'url';
+import { Path } from 'path-parser';
+
 const surveyRoutes = (app) => {
-	app.get('/api/surveys/thanks', (req, res) => {
+	app.get('/api/surveys/:surveyId/:choice', (req, res) => {
 		res.send('Thanks For Voting');
+	});
+
+	app.get('/api/surveys', async (req, res) => {
+		if (req.user) {
+			const survey = await Survey.find({ _user: req.user.id }).select({
+				recipients: false
+			});
+
+			res.send(survey);
+		} else {
+			throw new Error('Not Logged In');
+		}
 	});
 
 	app.post(
@@ -47,6 +63,45 @@ const surveyRoutes = (app) => {
 			}
 		})
 	);
+
+	app.post('/api/surveys/webhook', (req, res) => {
+		//Pattern to extract from url
+		const p = new Path('/api/surveys/:surveyId/:choice');
+		//array of events from sendgrid
+		const events = _.map(req.body, ({ email, url }) => {
+			//extracts route from url eg: api/surveys/12321312/yes
+			const pathname = new URL(url).pathname;
+			//Returns matched pattern
+			const match = p.test(pathname);
+			//return email,surveyId,choice object
+			if (match) return { email: email, surveyId: match.surveyId, choice: match.choice };
+		});
+		//Removes undefined values
+		const compactEvents = _.compact(events);
+		//Removes Duplicate
+		const uniqueEvents = _.uniqBy(compactEvents, 'email', 'surveyId');
+		//Respond to sendgrid
+		uniqueEvents.forEach(({ email, choice, surveyId }) =>
+			Survey.updateOne(
+				{
+					_id: surveyId,
+					recipients: {
+						$elemMatch: { email: email, responded: false }
+					}
+				},
+				{
+					$inc: {
+						[choice]: 1
+					},
+					$set: {
+						'recipients.$.responded': true
+					},
+					lastResponded: Date.now()
+				}
+			).exec()
+		);
+		res.send({});
+	});
 };
 
 export default surveyRoutes;
