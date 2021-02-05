@@ -930,6 +930,12 @@ h6 {
   width: 50%;
 }
 
+@media only screen and (max-width: 670px) {
+  .survey-review .review-box {
+    width: 80%;
+  }
+}
+
 .survey-review .review-box .box {
   padding: 1rem 4rem;
 }
