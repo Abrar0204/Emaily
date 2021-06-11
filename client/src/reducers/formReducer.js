@@ -1,13 +1,13 @@
 const initialState = {
-	title: 'Pokedex Feedback',
-	subject: 'Give us feedback',
-	body: 'How do you like our new pokedex features ?',
-	recipients: [ 'abrarhasan0204@gmail.com', 'abrarhasanofficial@gmail.com' ]
+	title: "",
+	subject: "",
+	body: "",
+	recipients: [],
 };
 
 const formReducer = (state = initialState, { type, payload }) => {
 	switch (type) {
-		case 'form/storeFormData':
+		case "form/storeFormData":
 			return { ...payload };
 		default:
 			return state;

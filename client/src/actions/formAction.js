@@ -1,31 +1,31 @@
-import axios from 'axios';
+import axios from "axios";
 
-const storeFormData = (formData) => {
-	const recipientList = formData.recipients.split(',').map((email) => email.trim());
+const storeFormData = formData => {
+	const recipientList = formData.recipients
+		.split(",")
+		.map(email => email.trim());
 	formData.recipients = recipientList;
 
 	return {
-		type: 'form/storeFormData',
-		payload: formData
+		type: "form/storeFormData",
+		payload: formData,
 	};
 };
 
-const submitForm = () => async (dispatch, getState) => {
+const submitForm = history => async (dispatch, getState) => {
 	try {
 		const { formData } = getState();
-		dispatch({
-			type: 'user/loading'
-		});
-		const { data } = await axios.post('/api/surveys/', formData);
+		const { data } = await axios.post("/api/surveys/", formData);
 
+		history.push("/surveys");
 		dispatch({
-			type: 'user/getUser',
-			payload: data
+			type: "user/getUser",
+			payload: { ...data, credits: data.credits-- },
 		});
 	} catch (err) {
 		dispatch({
-			type: 'user/error',
-			payload: err
+			type: "user/error",
+			payload: err,
 		});
 	}
 };

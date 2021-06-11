@@ -1,11 +1,11 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 const Survey = ({ survey }) => {
-	const { title, subject, body, yes, no, dateSent, lastResponded } = survey;
+	const { title, subject, body, yes, no, dateSent } = survey;
 
-	const calculateProgressBar = (value) => {
+	const calculateProgressBar = value => {
 		const totalWidth = yes + no;
-		return value / totalWidth * 100;
+		return (value / totalWidth) * 100;
 	};
 	console.log(dateSent);
 	return (

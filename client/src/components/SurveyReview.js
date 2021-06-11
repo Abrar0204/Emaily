@@ -1,17 +1,16 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
-import { submitForm } from '../actions/formAction';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { submitForm } from "../actions/formAction";
 const SurveyReview = () => {
-	const formData = useSelector((state) => state.formData);
+	const formData = useSelector(state => state.formData);
 
 	const { title, body, subject, recipients } = formData;
 
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const submitSurvey = () => {
-		dispatch(submitForm());
-		history.push('/surveys');
+		dispatch(submitForm(history));
 	};
 
 	return (
@@ -32,7 +31,7 @@ const SurveyReview = () => {
 				<div className="box">
 					<h3 className="title">Recipients</h3>
 					<div className="list">
-						{recipients.map((recipient) => (
+						{recipients.map(recipient => (
 							<p className="list-item" key={recipient}>
 								{recipient}
 							</p>

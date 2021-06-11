@@ -810,7 +810,6 @@ h6 {
 
 .survey-form-container {
   width: 100%;
-  height: 60vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -822,7 +821,7 @@ h6 {
 }
 
 .survey-form {
-  margin-top: 10rem;
+  margin-top: 3rem;
   width: 35%;
 }
 
@@ -848,23 +847,12 @@ h6 {
   font-size: 2rem;
 }
 
-.survey-form .input-container input:focus ~ label,
-.survey-form .input-container input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #656565;
-  font-size: 1.3rem;
-}
-
 .survey-form .input-container label {
-  position: absolute;
-  top: 0;
-  left: 0;
   padding: 1rem 0;
   color: #00344b;
   pointer-events: none;
-  -webkit-transition: all .5s ease;
-  transition: all .5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .survey-form .button-list {
@@ -878,6 +866,7 @@ h6 {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  margin: 2rem 0rem;
 }
 
 @media only screen and (max-width: 350px) {
@@ -946,7 +935,7 @@ h6 {
 
 .survey-review .review-box .box .value,
 .survey-review .review-box .box .list {
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
 }
 
 .survey-review .review-box .button-list {

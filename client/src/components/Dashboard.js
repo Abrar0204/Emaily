@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import LoadingPage from './LoadingPage';
-import add from '../res/svg/Add.svg';
-import { Link } from 'react-router-dom';
-import SurveyList from './common/SurveyList';
+import React from "react";
+import LoadingPage from "./LoadingPage";
+import add from "../res/svg/Add.svg";
+import { Link } from "react-router-dom";
+import SurveyList from "./common/SurveyList";
 
 const Dashboard = ({ user }) => {
 	const checkLoggedIn = () => {
